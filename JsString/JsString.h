@@ -292,10 +292,85 @@ char* replaceAll(char* arr, char* word1, char* word2)
 
     char* tmp = (char*)calloc(size1 + size2, sizeof(char));
     strcpy(tmp, arr);
-    int index = indexOf(arr, word1);
+    for (int i = 0; i < size1 + size2; i++)
+    {
+        int index = indexOf(tmp, word1);
+        for (int i = 0; i < size2; ++i)
+        {
+            tmp[index++] = word2[i];
+        }
+    }
+    return tmp;
+}
+
+char* slice(char* arr, int num)
+{
+    int size = strlen(arr);
+
+    if (num < 0 || num >= size)
+    {
+        return arr;
+    }
+    
+    char* tmp = (char*)calloc(size - num, sizeof(char));
+
+    int index = 0;
+    for (int i = num; i < size; i++)
+    {
+        tmp[index++] = arr[i];
+    }
+    
+    return tmp;
+}
+
+// split
+
+int startsWith(char* array, char* word)
+{
+    int size1 = strlen(array);
+    int size2 = strlen(word);
+
     for (int i = 0; i < size2; ++i)
     {
-        tmp[index++] = word2[i];
+        if (array[i] != word[i] || size1 < size2)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+char* toLowerCase(char* arr)
+{
+    int size = strlen(arr);
+    char* tmp = calloc(size, sizeof(char));
+    strcpy(tmp, arr);
+    for (int i = 0; i < size; ++i)
+    {
+        if (tmp[i] >= 'A' &&  tmp[i] <= 'Z')
+        {
+            tmp[i] += 32;
+        }
+        
+        
+    }
+    
+    return tmp;
+}
+
+char* toUpperCase(char* arr)
+{
+    int size = strlen(arr);
+    char* tmp = calloc(size, sizeof(char));
+    strcpy(tmp, arr);
+    for (int i = 0; i < size; ++i)
+    {
+        if (tmp[i] >= 'a' &&  tmp[i] <= 'z')
+        {
+            tmp[i] -= 32;
+        }
+        
+        
     }
     
     return tmp;
