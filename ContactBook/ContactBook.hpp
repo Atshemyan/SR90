@@ -72,7 +72,7 @@ class ContactBook
 
         }
 
-        ~ContactBook() //stex piti lini en erb objecty jnjvum a petqa sax het lcvi baza
+        ~ContactBook()
         {  
             file.close();
             file.open("data.txt");
