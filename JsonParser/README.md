@@ -1,4 +1,4 @@
-Documentation for the `myparser` Program
+##python3 main.py
 
 The `myparser` program is a console application in Python that provides functionality for parsing and manipulating JSON files. It allows users to add or delete fields in a JSON file through a command-line interface. The program consists of two main functions: `add_field` and `delete_field`.
 
